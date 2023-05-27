@@ -1,0 +1,29 @@
+
+Create town_people
+Create town_areas
+
+Agents
+def __init__(self, name, description, starting_location, world_graph, use_openai):
+        self.name = name
+        self.description = description
+        self.location = starting_location
+        self.memory_ratings = []
+        self.memories = []
+        self.compressed_memories = []
+        self.plans = ""
+        self.world_graph = world_graph
+        self.use_openai = use_openai
+
+Run 
+# Plan actions for each agent
+agent.plan(global_time, prompt_meta)
+
+# Execute planned actions and update memories
+action = agent.execute_action(agents, locations.get_location(agent.location), global_time, town_areas, prompt_meta)
+other_agent.memories.append(memory)
+agent.compress_memories(global_time)
+
+# Rate locations and determine where agents will go next
+place_ratings = agent.rate_locations(locations, global_time, prompt_meta)
+agent.move(new_location_name)
+
